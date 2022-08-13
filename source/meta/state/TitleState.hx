@@ -92,19 +92,6 @@ class TitleState extends MusicBeatState
 		titleImage = "freaky";
 		super.create();
 
-		if (!initialized)
-		{
-			#if !html5
-			Discord.changePresence('Beginning Game', 'Title Screen', " ", titleImage);
-			#end
-		}
-		else
-		{
-			#if !html5
-			Discord.changePresence('Menu Screen', 'Main Menu', " ", titleImage);
-			#end
-		}
-
 		persistentUpdate = true;
 
 		GameOverSubstate.fishHadEnough = 0;
