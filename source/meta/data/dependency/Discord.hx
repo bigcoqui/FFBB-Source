@@ -9,6 +9,24 @@ import lime.app.Application;
 class Discord
 {
 	#if !html5
+	// set up the rich presence initially
+	public static function initializeRPC()
+	{
+		// THANK YOU GEDE
+		Application.current.window.onClose.add(shutdownRPC);
+	}
+
+	// from the base game
+	static function onReady()
+	{
+		/*DiscordRpc.presence({
+			details: "",
+			state: null,
+			largeImageKey: 'iconog',
+			largeImageText: "Forever Engine"
+		});*/
+	}
+
 	static function onError(_code:Int, _message:String)
 	{
 		trace('Error! $_code : $_message');
@@ -21,10 +39,7 @@ class Discord
 
 	//
 
-	/* This function contains a new installation at the end called 'icon' which will track the discord image being used for the certain states you're in the game.
-		Due to 'largeImageKey' reading a String for a picture, the 'icon' variable that's a String is used for 'largeImageKey' to track for each song and state.
-	    Me and Decoy spent a little while figuring this out and he's mainly responsible for the idea. We did get inspiration from Afton, so credits to them. - doubletime32 */
-	public static function changePresence(details:String = '', state:Null<String> = '', ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float, ?icon: String)
+	public static function changePresence(details:String = '', state:Null<String> = '', ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float)
 	{
 		var startTimestamp:Float = (hasStartTimestamp) ? Date.now().getTime() : 0;
 
@@ -32,6 +47,11 @@ class Discord
 			endTimestamp = startTimestamp + endTimestamp;
 
 		// trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
+	}
+
+	public static function shutdownRPC()
+	{
+		// borrowed from izzy engine -- somewhat, at least
 	}
 	#end
 }
