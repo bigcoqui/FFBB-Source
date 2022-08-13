@@ -1398,17 +1398,12 @@ class PlayState extends MusicBeatState
 		#if !html5
 		var displayRPC:String = (pausedRPC) ? detailsPausedText : songDetails;
 
-		if (underwearHealth > -2)
+		if (health > 0)
 		{
-			if (!practiceMode)
-			{
-				if (Conductor.songPosition > 0 && !pausedRPC)
-					Discord.changePresence(displayRPC, iconRPC, true, songLength - Conductor.songPosition, curImage);
-				else
-					Discord.changePresence(displayRPC, iconRPC, " ", curImage);
-			}
+			if (Conductor.songPosition > 0 && !pausedRPC)
+				Discord.changePresence(displayRPC, detailsSub, iconRPC, true, songLength - Conductor.songPosition);
 			else
-				Discord.changePresence('Practicing: ' + songDetails, iconRPC, " ", curImage);
+				Discord.changePresence(displayRPC, detailsSub, iconRPC);
 		}
 		#end
 	}
