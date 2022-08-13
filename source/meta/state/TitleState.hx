@@ -251,10 +251,6 @@ class TitleState extends MusicBeatState
 
 		updateSelection();
 
-		#if android
-		addVirtualPad(LEFT_FULL, A_B);
-		#end
-
 		if (isMainMenu && initialized)
 			backToMain();
 		else
