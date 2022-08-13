@@ -1398,7 +1398,7 @@ class PlayState extends MusicBeatState
 		#if !html5
 		var displayRPC:String = (pausedRPC) ? detailsPausedText : songDetails;
 
-		if (health > 0)
+		if (underwearHealth > -2)
 		{
 			if (Conductor.songPosition > 0 && !pausedRPC)
 				Discord.changePresence(displayRPC, detailsSub, iconRPC, true, songLength - Conductor.songPosition);
