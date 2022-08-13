@@ -360,14 +360,10 @@ class TitleState extends MusicBeatState
 			});
 		}
 
-		#if mobile
+		#if android
 		for (touch in FlxG.touches.list)
-		{
 			if (touch.justPressed)
-			{
 				pressedEnter = true;
-			}
-		}
 		#end
 
 		var gamepad:FlxGamepad = FlxG.gamepads.lastActive;
