@@ -9,13 +9,6 @@ import lime.app.Application;
 class Discord
 {
 	#if !html5
-	// set up the rich presence initially
-	public static function initializeRPC()
-	{
-		// THANK YOU GEDE
-		Application.current.window.onClose.add(shutdownRPC);
-	}
-
 	static function onError(_code:Int, _message:String)
 	{
 		trace('Error! $_code : $_message');
