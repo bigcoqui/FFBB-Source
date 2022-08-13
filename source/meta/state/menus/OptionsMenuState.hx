@@ -546,6 +546,7 @@ class OptionsMenuState extends MusicBeatState
 		}
 	}
 
+	#if android
 	public function openAndroidControlmenu()
 	{
 		if (controls.ACCEPT)
@@ -562,6 +563,7 @@ class OptionsMenuState extends MusicBeatState
 			});
 		}
 	}
+	#end
 
 	public function openControlmenu()
 	{
