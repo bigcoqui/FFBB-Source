@@ -1,8 +1,5 @@
 package meta.data.dependency;
 
-#if !html5
-import discord_rpc.DiscordRpc;
-#end
 import lime.app.Application;
 
 /**
@@ -15,26 +12,8 @@ class Discord
 	// set up the rich presence initially
 	public static function initializeRPC()
 	{
-		DiscordRpc.start({
-			clientID: "962858524826800158",
-			onReady: onReady,
-			onError: onError,
-			onDisconnected: onDisconnected
-		});
-
 		// THANK YOU GEDE
 		Application.current.window.onClose.add(shutdownRPC);
-	}
-
-	// from the base game
-	static function onReady()
-	{
-		DiscordRpc.presence({
-			details: "",
-			state: null,
-			largeImageKey: 'freaky',
-			largeImageText: "FNF in: Funkin for Bikini Bottom!"
-		});
 	}
 
 	static function onError(_code:Int, _message:String)
@@ -59,24 +38,7 @@ class Discord
 		if (endTimestamp > 0)
 			endTimestamp = startTimestamp + endTimestamp;
 
-		DiscordRpc.presence({
-			details: details,
-			state: state,
-			largeImageKey: icon,
-			largeImageText: "FNF in: Funkin for Bikini Bottom!",
-			smallImageKey: smallImageKey,
-			// Obtained times are in milliseconds so they are divided so Discord can use it
-			startTimestamp: Std.int(startTimestamp / 1000),
-			endTimestamp: Std.int(endTimestamp / 1000)
-		});
-
 		// trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
-	}
-
-	public static function shutdownRPC()
-	{
-		// borrowed from izzy engine -- somewhat, at least
-		DiscordRpc.shutdown();
 	}
 	#end
 }
