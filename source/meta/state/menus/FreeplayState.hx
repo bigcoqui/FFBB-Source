@@ -109,10 +109,6 @@ class FreeplayState extends MusicBeatState
 		// LOAD MUSIC
 		// ForeverTools.resetMenuMusic();
 
-		#if !html5 
-		Discord.changePresence('Ordering A Battle', 'Freeplay', " ", TitleState.titleImage);
-		#end
-
 		// LOAD CHARACTERS
 		bgBack = new FlxSprite().loadGraphic(Paths.image('menus/base/freeplay/bgBack'));
 		bgBack.antialiasing = true;
