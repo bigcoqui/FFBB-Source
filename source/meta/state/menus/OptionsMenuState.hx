@@ -46,10 +46,6 @@ class OptionsMenuState extends MusicBeatState
 
 		// NOTE : Make sure to check Init.hx if you are trying to add options.
 
-		#if !html5
-		Discord.changePresence('Changing Options', 'Option Menu', " ", TitleState.titleImage);
-		#end
-
 		categoryMap = [
 			'main' => [
 				[
