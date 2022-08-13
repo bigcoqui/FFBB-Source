@@ -44,11 +44,11 @@
 
 	<source path="source" />
 	<assets path="assets" />
+	
+	<assets path="assets/android" if="android"/>
 	<assets path="assets/songs"/>
 	<assets path="assets/music" preload="true"/>
 	<assets path="FE-CrashDialog.exe" type="template" if="windows release" />
-
-	<!--<assets path="mods" />-->
 
 	<!-- _______________________________ Libraries ______________________________ -->
 
@@ -59,6 +59,8 @@
 	<haxelib name="flixel-ui" />
 	<haxelib name="discord_rpc" if="DISCORD_RPC"/>
 	<haxelib name="polymod"/>
+
+	<haxelib name="extension-androidtools" if="android"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
