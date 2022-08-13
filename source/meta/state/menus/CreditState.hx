@@ -131,7 +131,11 @@ class CreditState extends MusicBeatState
 		description.antialiasing = true;
 		description.alpha = 0;
 		add(description);
-		
+
+		#if android
+		addVirtualPad(NONE, B);
+		#end
+
 		FlxG.mouse.visible = true;
 		FlxG.mouse.enabled = true;
 		FlxG.mouse.useSystemCursor = true;
