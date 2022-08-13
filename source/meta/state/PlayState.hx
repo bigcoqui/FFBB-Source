@@ -498,6 +498,10 @@ class PlayState extends MusicBeatState
 				curImage = "freaky";
 		}
 
+		#if android
+		addAndroidControls();
+		#end
+
 		//
 		keysArray = [
 			copyKey(Init.gameControls.get('LEFT')[0]),
@@ -693,21 +697,6 @@ class PlayState extends MusicBeatState
 			dadOpponent.dance();
 
 		if (!inCutscene) {
-			// pause the game if the game is allowed to pause and enter is pressed
-			if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
-			{
-				// update drawing stuffs
-				persistentUpdate = false;
-				persistentDraw = true;
-				paused = true;
-				songMusic.pause();
-				vocals.pause();
-
-				// open pause substate
-				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
-				updateRPC(true);
-			}
-
 			///*
 			if (startingSong)
 			{
@@ -1957,6 +1946,10 @@ class PlayState extends MusicBeatState
 
 	function endSong():Void
 	{
+	  #if android
+	  androidControls.visible = false;
+	  #end
+
 		canPause = false;
 		songMusic.volume = 0;
 		vocals.volume = 0;
@@ -2098,6 +2091,10 @@ class PlayState extends MusicBeatState
 
 	private function startCountdown():Void
 	{
+	  #if android
+	  androidControls.visible = true;
+	  #end
+
 		inCutscene = false;
 		Conductor.songPosition = -(Conductor.crochet * 5);
 		swagCounter = 0;
