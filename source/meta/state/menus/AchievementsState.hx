@@ -52,10 +52,6 @@ class AchievementsState extends MusicBeatState
     {
         super.create();
 
-		#if !html5
-		Discord.changePresence('Scrolling In The Achievements', 'Achievement Screen', " ", TitleState.titleImage);
-		#end
-
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menus/base/achievements/IMG_6825'));
 		bg.screenCenter();
 		bg.setGraphicSize(Std.int(bg.width * 1.05));
