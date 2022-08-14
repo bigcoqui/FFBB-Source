@@ -294,8 +294,8 @@ class FreeplayState extends MusicBeatState
 		if (squeakSound > 2)
 			squeakSound = 1;
 
-		var upP = controls.UP_P;
-		var downP = controls.DOWN_P;
+		var upP = controls.UI_UP_P;
+		var downP = controls.UI_DOWN_P;
 		var accepted = controls.ACCEPT;
 
 		if (upP && !selectedSong)
@@ -311,9 +311,9 @@ class FreeplayState extends MusicBeatState
 			squeakSound++;
 		}
 
-		if (controls.LEFT_P && !selectedSong)
+		if (controls.UI_LEFT_P && !selectedSong)
 			changeDiff(-1);
-		if (controls.RIGHT_P && !selectedSong)
+		if (controls.UI_RIGHT_P && !selectedSong)
 			changeDiff(1);
 
 		if (controls.BACK && !selectedSong)
