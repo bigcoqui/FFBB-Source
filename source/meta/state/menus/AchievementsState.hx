@@ -116,9 +116,9 @@ class AchievementsState extends MusicBeatState
 		changeSelection();
 
 		#if android
-		addVirtualPad(UP_DOWN, A_B);
+		addVirtualPad(UP_DOWN, B);
 		#end
-    }
+  }
 
 	override function update(elapsed:Float)
 	{
@@ -135,13 +135,13 @@ class AchievementsState extends MusicBeatState
 		if (squeakSound > 2)
 			squeakSound = 1;
 
-		if (controls.DOWN_P)
+		if (controls.UI_DOWN_P)
 		{
 			FlxG.sound.play(Paths.sound('squeak' + squeakSound), 0.7);
 			squeakSound++;
 			changeSelection(1);
 		}
-		if (controls.UP_P)
+		if (controls.UI_UP_P)
 		{
 			FlxG.sound.play(Paths.sound('squeak' + squeakSound), 0.7);
 			squeakSound++;
