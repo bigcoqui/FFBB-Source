@@ -315,8 +315,8 @@ class OptionsMenuState extends MusicBeatState
 	{
 		var up = controls.UP;
 		var down = controls.DOWN;
-		var up_p = controls.UP_P;
-		var down_p = controls.DOWN_P;
+		var up_p = controls.UI_UP_P;
+		var down_p = controls.UI_DOWN_P;
 		var controlArray:Array<Bool> = [up, down, up_p, down_p];
 
 		if (controlArray.contains(true))
@@ -453,9 +453,9 @@ class OptionsMenuState extends MusicBeatState
 					if (!controls.RIGHT)
 						selector.selectorPlay('right');
 
-					if (controls.RIGHT_P)
+					if (controls.UI_RIGHT_P)
 						updateSelector(selector, 1);
-					else if (controls.LEFT_P)
+					else if (controls.UI_LEFT_P)
 						updateSelector(selector, -1);
 					#end
 				default:
