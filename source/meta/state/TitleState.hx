@@ -251,10 +251,6 @@ class TitleState extends MusicBeatState
 
 		updateSelection();
 
-		#if android
-		addVirtualPad(LEFT_FULL, A_B);
-		#end
-
 		if (isMainMenu && initialized)
 			backToMain();
 		else
@@ -329,9 +325,9 @@ class TitleState extends MusicBeatState
 				if (curSelected == 0)
 				{
 					diffText.visible = true;
-					if (controls.LEFT_P)
+					if (controls.UI_LEFT_P)
 						changeDiff(1);
-					if (controls.RIGHT_P)
+					if (controls.UI_RIGHT_P)
 						changeDiff(-1);
 				}
 				else
@@ -455,8 +451,8 @@ class TitleState extends MusicBeatState
 
 		var up = controls.UP;
 		var down = controls.DOWN;
-		var up_p = controls.UP_P;
-		var down_p = controls.DOWN_P;
+		var up_p = controls.UI_UP_P;
+		var down_p = controls.UI_DOWN_P;
 		var controlArray:Array<Bool> = [up, down, up_p, down_p];
 
 		if ((controlArray.contains(true)) && (!selectedSomethin) && (isMainMenu))
@@ -579,6 +575,10 @@ class TitleState extends MusicBeatState
 		warningText.antialiasing = true;
 		warningText.screenCenter();
 		add(warningText);
+
+		#if android
+		addVirtualPad(NONE, B);
+		#end
 	}
 
 	function mainMenuSwitch()
@@ -595,6 +595,10 @@ class TitleState extends MusicBeatState
 					}});
 			});
 		}});
+
+		#if android
+		addVirtualPad(LEFT_FULL, A);
+		#end
 	}
 
 	var lastCurSelected:Int = 0;
