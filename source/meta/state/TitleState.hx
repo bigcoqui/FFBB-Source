@@ -251,6 +251,10 @@ class TitleState extends MusicBeatState
 
 		updateSelection();
 
+		#if android
+		addVirtualPad(LEFT_FULL, A);
+		#end
+
 		if (isMainMenu && initialized)
 			backToMain();
 		else
@@ -595,10 +599,6 @@ class TitleState extends MusicBeatState
 					}});
 			});
 		}});
-
-		#if android
-		addVirtualPad(LEFT_FULL, A);
-		#end
 	}
 
 	var lastCurSelected:Int = 0;
