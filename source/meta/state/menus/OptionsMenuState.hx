@@ -551,9 +551,6 @@ class OptionsMenuState extends MusicBeatState
 			lockedMovement = true;
 			FlxFlicker.flicker(activeSubgroup.members[curSelection], 0.5, 0.06 * 2, true, false, function(flick:FlxFlicker)
 			{
-				#if android
-				removeVirtualPad();
-				#end
 				openSubState(new android.AndroidControlsSubState());
 				lockedMovement = false;
 			});
