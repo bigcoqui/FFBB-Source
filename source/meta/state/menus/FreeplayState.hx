@@ -19,6 +19,7 @@ import flixel.util.FlxTimer;
 import gameObjects.userInterface.HealthIcon;
 import gameObjects.userInterface.SpatulaHUD;
 import lime.utils.Assets;
+import openfl.utils.Assets as Xereca;
 import meta.MusicBeat.MusicBeatState;
 import meta.data.*;
 import meta.data.Song.SwagSong;
@@ -249,8 +250,8 @@ class FreeplayState extends MusicBeatState
 		///*
 		var coolDifficultyArray = [];
 		for (i in CoolUtil.difficultyArray)
-			if (FileSystem.exists(SUtil.getPath() + Paths.songJson(songName, songName + '-' + i))
-				|| (FileSystem.exists(SUtil.getPath() + Paths.songJson(songName, songName)) && i == "NORMAL"))
+			if (Xereca.exists(Paths.songJson(songName, songName + '-' + i))
+				|| (Xereca.exists(Paths.songJson(songName, songName)) && i == "NORMAL"))
 				coolDifficultyArray.push(i);
 
 		if (coolDifficultyArray.length > 0)
