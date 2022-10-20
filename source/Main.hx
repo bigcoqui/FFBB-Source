@@ -145,8 +145,6 @@ class Main extends Sprite
 			// if set to negative one, it is done so automatically, which is the default.
 		}
 
-		SUtil.check();
-
 		FlxTransitionableState.skipNextTransIn = true;
 		
 		// here we set up the base game
